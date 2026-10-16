@@ -1,0 +1,37 @@
+# Секреты
+.env
+.env.*
+!.env.example
+*.token
+.factory-*
+*.pem
+*.key
+
+# Живые данные агентов
+agents/*/memory/*
+agents/*/memory-archive/
+agents/*/projects/*
+agents/*/state/
+agents/*/.openclaw/
+agents/*/MEMORY.md.local
+!agents/*/memory/.gitkeep
+!agents/*/projects/.gitkeep
+
+# Медиа и сборки
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.gif
+*.mp4
+*.mov
+node_modules/
+.next/
+__pycache__/
+
+# Мусор
+*.log
+*.db
+*.sqlite*
+*.bak*
+.DS_Store

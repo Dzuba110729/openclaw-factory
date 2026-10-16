@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>ai.openclaw.vkgate</string>
+
+    <key>Comment</key>
+    <string>VK comments gate: wakes the smm LLM agent only when unanswered comments exist</string>
+
+    <key>ProgramArguments</key>
+    <array>
+      <string>/bin/bash</string>
+      <string>{{HOME}}/openclaw-factory/agents/smm/scripts/vk-gate.sh</string>
+    </array>
+
+    <key>StartInterval</key>
+    <integer>28800</integer>
+
+    <key>RunAtLoad</key>
+    <false/>
+
+    <key>EnvironmentVariables</key>
+    <dict><key>OWNER_TG_ID</key><string>{{OWNER_TG_ID}}</string>
+      <key>HOME</key>
+      <string>{{HOME}}</string>
+      <key>PATH</key>
+      <string>/usr/local/bin:/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin:{{HOME}}/.local/bin</string>
+    </dict>
+
+    <key>StandardOutPath</key>
+    <string>/dev/null</string>
+    <key>StandardErrorPath</key>
+    <string>{{HOME}}/.openclaw/logs/vk-gate.err.log</string>
+  </dict>
+</plist>

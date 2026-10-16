@@ -1,0 +1,14 @@
+#!/bin/bash
+# oclaw-send — copy file to sendable location and print MEDIA tag
+# Usage: oclaw-send /path/to/file.png
+set -e
+FILE="$1"
+if [ -z "$FILE" ] || [ ! -f "$FILE" ]; then
+  echo "Usage: oclaw-send <file>" >&2
+  exit 1
+fi
+BASENAME=$(basename "$FILE")
+DEST="/tmp/openclaw/$BASENAME"
+mkdir -p /tmp/openclaw
+cp "$FILE" "$DEST"
+echo "MEDIA:$DEST"

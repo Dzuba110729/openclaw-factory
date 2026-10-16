@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key><string>ai.openclaw.claude-auth-check</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/zsh</string>
+    <string>{{HOME}}/.openclaw/scripts/claude-auth-check.sh</string>
+  </array>
+  <key>EnvironmentVariables</key>
+  <dict><key>OWNER_TG_ID</key><string>{{OWNER_TG_ID}}</string><key>PATH</key><string>/usr/local/bin:{{HOME}}/.local/bin:/usr/bin:/bin</string></dict>
+  <key>WorkingDirectory</key><string>/tmp</string>
+  <key>StartInterval</key><integer>7200</integer>
+  <key>RunAtLoad</key><true/>
+  <key>StandardOutPath</key><string>/dev/null</string>
+  <key>StandardErrorPath</key><string>{{HOME}}/.openclaw/logs/claude-auth-check.err.log</string>
+</dict>
+</plist>

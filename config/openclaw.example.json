@@ -1,0 +1,618 @@
+{
+  "auth": {
+    "profiles": {
+      "anthropic:default": {
+        "provider": "anthropic",
+        "mode": "api_key"
+      },
+      "anthropic:claude-cli": {
+        "provider": "claude-cli",
+        "mode": "oauth"
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "claude-cli/claude-sonnet-4-6"
+      },
+      "workspace": "{{HOME}}/openclaw-factory",
+      "thinkingDefault": "high",
+      "heartbeat": {
+        "every": "0m"
+      },
+      "contextPruning": {
+        "mode": "cache-ttl",
+        "ttl": "6h"
+      },
+      "compaction": {
+        "mode": "safeguard",
+        "reserveTokensFloor": 20000,
+        "memoryFlush": {
+          "enabled": true,
+          "softThresholdTokens": 4000
+        }
+      },
+      "memorySearch": {
+        "enabled": true,
+        "sources": [
+          "memory"
+        ],
+        "provider": "mistral",
+        "model": "mistral-embed",
+        "query": {
+          "maxResults": 8,
+          "minScore": 0.3
+        }
+      },
+      "llm": {
+        "idleTimeoutSeconds": 300
+      },
+      "models": {
+        "claude-cli/claude-sonnet-4-6": {},
+        "claude-cli/claude-opus-4-6": {},
+        "claude-cli/claude-opus-4-5": {},
+        "claude-cli/claude-sonnet-4-5": {},
+        "claude-cli/claude-haiku-4-5": {}
+      }
+    },
+    "list": [
+      {
+        "id": "coordinator",
+        "name": "Координатор",
+        "workspace": "{{HOME}}/openclaw-factory/agents/coordinator",
+        "identity": {
+          "emoji": "🟡"
+        },
+        "skills": [
+          "telegram",
+          "memory-system",
+          "agent-memory",
+          "shared-learnings",
+          "openclaw-ops",
+          "soul-mastery",
+          "agent-architect",
+          "skill-creator"
+        ]
+      },
+      {
+        "id": "copywriter",
+        "name": "Копирайтер",
+        "workspace": "{{HOME}}/openclaw-factory/agents/copywriter",
+        "identity": {
+          "emoji": "🟠"
+        },
+        "skills": [
+          "copywriting",
+          "headlines",
+          "storytelling",
+          "selling-meanings",
+          "editing",
+          "audience-lens",
+          "swipefile",
+          "content-repurposer",
+          "seo-blog-writer",
+          "threads",
+          "reels",
+          "youtube",
+          "carousel",
+          "personal-unpacking",
+          "telegram",
+          "memory-system",
+          "agent-memory"
+        ]
+      },
+      {
+        "id": "marketer",
+        "name": "Маркетолог",
+        "workspace": "{{HOME}}/openclaw-factory/agents/marketer",
+        "identity": {
+          "emoji": "📈"
+        },
+        "skills": [
+          "audience-lens",
+          "customer-research",
+          "personal-unpacking",
+          "selling-meanings",
+          "content-repurposer",
+          "swipefile",
+          "prompt-engineer",
+          "threads",
+          "telegram",
+          "memory-system",
+          "agent-memory"
+        ]
+      },
+      {
+        "id": "designer",
+        "name": "Дизайнер",
+        "workspace": "{{HOME}}/openclaw-factory/agents/designer",
+        "identity": {
+          "emoji": "🟣"
+        },
+        "skills": [
+          "nano-banana",
+          "nano-banana-pro-prompts",
+          "canvas-design",
+          "carousel",
+          "figma",
+          "frontend-design",
+          "theme-factory",
+          "video-editor",
+          "veo-video",
+          "heygen",
+          "timelapse-creator",
+          "brand-kit",
+          "editing",
+          "telegram",
+          "memory-system",
+          "agent-memory"
+        ]
+      },
+      {
+        "id": "tech",
+        "name": "Технарь",
+        "workspace": "{{HOME}}/openclaw-factory/agents/tech",
+        "identity": {
+          "emoji": "🟢"
+        },
+        "skills": [
+          "coding-agent",
+          "openclaw-ops",
+          "skill-creator",
+          "skill-security",
+          "soul-mastery",
+          "agent-architect",
+          "agent-memory",
+          "memory-system",
+          "prompt-engineer",
+          "telegram-admin",
+          "healthcheck",
+          "node-connect"
+        ]
+      },
+      {
+        "id": "brain",
+        "name": "Архивариус",
+        "workspace": "{{HOME}}/openclaw-factory/agents/brain",
+        "identity": {
+          "emoji": "🧠"
+        },
+        "skills": [
+          "agent-memory",
+          "memory-system",
+          "shared-learnings",
+          "learning-processor",
+          "telegram"
+        ]
+      },
+      {
+        "id": "smm",
+        "name": "СММ",
+        "workspace": "{{HOME}}/openclaw-factory/agents/smm",
+        "identity": {
+          "emoji": "📣"
+        },
+        "skills": [
+          "telegram",
+          "telegram-admin",
+          "copywriting",
+          "headlines",
+          "storytelling",
+          "editing",
+          "content-repurposer",
+          "carousel",
+          "threads",
+          "reels",
+          "brand-kit",
+          "swipefile",
+          "memory-system",
+          "agent-memory"
+        ]
+      },
+      {
+        "id": "methodist",
+        "name": "Методист",
+        "workspace": "{{HOME}}/openclaw-factory/agents/methodist",
+        "identity": {
+          "emoji": "📚"
+        },
+        "skills": [
+          "heygen",
+          "telegram",
+          "copywriting",
+          "editing",
+          "storytelling",
+          "seo-blog-writer",
+          "memory-system",
+          "agent-memory"
+        ]
+      },
+      {
+        "id": "seo",
+        "name": "SEO Аудитор",
+        "workspace": "{{HOME}}/openclaw-factory/agents/seo",
+        "identity": {
+          "emoji": "🔍"
+        },
+        "skills": [
+          "seo-blog-writer",
+          "headlines",
+          "editing",
+          "copywriting",
+          "telegram",
+          "memory-system",
+          "agent-memory"
+        ]
+      }
+    ]
+  },
+  "env": {
+    "MISTRAL_API_KEY": "{{MISTRAL_API_KEY}}"
+  },
+  "tools": {
+    "profile": "coding",
+    "media": {
+      "audio": {
+        "enabled": true,
+        "models": [
+          {
+            "provider": "mistral",
+            "model": "voxtral-mini-latest"
+          }
+        ]
+      }
+    },
+    "agentToAgent": {
+      "enabled": true
+    },
+    "sessions": {
+      "visibility": "all"
+    },
+    "exec": {
+      "host": "gateway",
+      "security": "full",
+      "ask": "off"
+    },
+    "fs": {
+      "workspaceOnly": false
+    }
+  },
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto",
+    "restart": true,
+    "ownerDisplay": "raw"
+  },
+  "session": {
+    "dmScope": "per-channel-peer"
+  },
+  "channels": {
+    "telegram": {
+      "enabled": true,
+      "dmPolicy": "pairing",
+      "groupPolicy": "allowlist",
+      "streaming": {
+        "mode": "partial"
+      },
+      "accounts": {
+        "coordinator": {
+          "botToken": "{{TG_BOT_TOKEN_COORDINATOR}}",
+          "dmPolicy": "allowlist",
+          "allowFrom": [
+            "{{OWNER_TG_ID}}"
+          ],
+          "groupPolicy": "allowlist",
+          "groupAllowFrom": [
+            "{{OWNER_TG_ID}}"
+          ],
+          "groups": {
+            "*": {
+              "requireMention": true
+            }
+          },
+          "streaming": {
+            "mode": "partial"
+          },
+          "actions": {
+            "reactions": true,
+            "sendMessage": true
+          }
+        },
+        "copywriter": {
+          "botToken": "{{TG_BOT_TOKEN_COPYWRITER}}",
+          "dmPolicy": "allowlist",
+          "allowFrom": [
+            "{{OWNER_TG_ID}}"
+          ],
+          "groupPolicy": "allowlist",
+          "groupAllowFrom": [
+            "{{OWNER_TG_ID}}"
+          ],
+          "groups": {
+            "*": {
+              "requireMention": true
+            }
+          },
+          "streaming": {
+            "mode": "partial"
+          },
+          "actions": {
+            "reactions": true,
+            "sendMessage": true
+          }
+        },
+        "marketer": {
+          "botToken": "{{TG_BOT_TOKEN_MARKETER}}",
+          "dmPolicy": "allowlist",
+          "allowFrom": [
+            "{{OWNER_TG_ID}}"
+          ],
+          "groupPolicy": "allowlist",
+          "groupAllowFrom": [
+            "{{OWNER_TG_ID}}"
+          ],
+          "groups": {
+            "*": {
+              "requireMention": true
+            }
+          },
+          "streaming": {
+            "mode": "partial"
+          },
+          "actions": {
+            "reactions": true,
+            "sendMessage": true
+          }
+        },
+        "designer": {
+          "botToken": "{{TG_BOT_TOKEN_DESIGNER}}",
+          "dmPolicy": "allowlist",
+          "allowFrom": [
+            "{{OWNER_TG_ID}}"
+          ],
+          "groupPolicy": "allowlist",
+          "groupAllowFrom": [
+            "{{OWNER_TG_ID}}"
+          ],
+          "groups": {
+            "*": {
+              "requireMention": true
+            }
+          },
+          "streaming": {
+            "mode": "partial"
+          },
+          "actions": {
+            "reactions": true,
+            "sendMessage": true
+          }
+        },
+        "tech": {
+          "botToken": "{{TG_BOT_TOKEN_TECH}}",
+          "dmPolicy": "allowlist",
+          "allowFrom": [
+            "{{OWNER_TG_ID}}"
+          ],
+          "groupPolicy": "allowlist",
+          "groupAllowFrom": [
+            "{{OWNER_TG_ID}}"
+          ],
+          "groups": {
+            "*": {
+              "requireMention": true
+            }
+          },
+          "streaming": {
+            "mode": "partial"
+          },
+          "actions": {
+            "reactions": true,
+            "sendMessage": true
+          }
+        },
+        "brain": {
+          "botToken": "{{TG_BOT_TOKEN_BRAIN}}",
+          "dmPolicy": "allowlist",
+          "allowFrom": [
+            "{{OWNER_TG_ID}}"
+          ],
+          "groupPolicy": "allowlist",
+          "groupAllowFrom": [
+            "{{OWNER_TG_ID}}"
+          ],
+          "groups": {
+            "*": {
+              "requireMention": true
+            }
+          },
+          "streaming": {
+            "mode": "partial"
+          },
+          "actions": {
+            "reactions": true,
+            "sendMessage": true
+          }
+        },
+        "smm": {
+          "botToken": "{{TG_BOT_TOKEN_SMM}}",
+          "dmPolicy": "allowlist",
+          "allowFrom": [
+            "{{OWNER_TG_ID}}"
+          ],
+          "groupPolicy": "allowlist",
+          "groupAllowFrom": [
+            "{{OWNER_TG_ID}}"
+          ],
+          "groups": {
+            "*": {
+              "requireMention": true
+            }
+          },
+          "streaming": {
+            "mode": "partial"
+          },
+          "actions": {
+            "reactions": true,
+            "sendMessage": true
+          }
+        },
+        "methodist": {
+          "botToken": "{{TG_BOT_TOKEN_METHODIST}}",
+          "dmPolicy": "allowlist",
+          "allowFrom": [
+            "{{OWNER_TG_ID}}"
+          ],
+          "groupPolicy": "allowlist",
+          "groupAllowFrom": [
+            "{{OWNER_TG_ID}}"
+          ],
+          "groups": {
+            "*": {
+              "requireMention": true
+            }
+          },
+          "streaming": {
+            "mode": "partial"
+          },
+          "actions": {
+            "reactions": true,
+            "sendMessage": true
+          }
+        },
+        "seo": {
+          "botToken": "{{TG_BOT_TOKEN_SEO}}",
+          "dmPolicy": "allowlist",
+          "allowFrom": [
+            "{{OWNER_TG_ID}}"
+          ],
+          "groupPolicy": "allowlist",
+          "groupAllowFrom": [
+            "{{OWNER_TG_ID}}"
+          ],
+          "groups": {
+            "*": {
+              "requireMention": true
+            }
+          },
+          "streaming": {
+            "mode": "partial"
+          },
+          "actions": {
+            "reactions": true,
+            "sendMessage": true
+          }
+        }
+      }
+    }
+  },
+  "gateway": {
+    "port": 18789,
+    "mode": "local",
+    "bind": "loopback",
+    "auth": {
+      "mode": "token",
+      "token": "{{GATEWAY_TOKEN}}"
+    },
+    "tailscale": {
+      "mode": "off",
+      "resetOnExit": false
+    }
+  },
+  "plugins": {
+    "entries": {
+      "telegram": {
+        "enabled": true
+      },
+      "anthropic": {
+        "enabled": false
+      },
+      "openai": {
+        "enabled": true
+      },
+      "browser": {
+        "enabled": true
+      }
+    }
+  },
+  "bindings": [
+    {
+      "agentId": "coordinator",
+      "match": {
+        "channel": "telegram",
+        "accountId": "coordinator"
+      }
+    },
+    {
+      "agentId": "copywriter",
+      "match": {
+        "channel": "telegram",
+        "accountId": "copywriter"
+      }
+    },
+    {
+      "agentId": "marketer",
+      "match": {
+        "channel": "telegram",
+        "accountId": "marketer"
+      }
+    },
+    {
+      "agentId": "designer",
+      "match": {
+        "channel": "telegram",
+        "accountId": "designer"
+      }
+    },
+    {
+      "agentId": "tech",
+      "match": {
+        "channel": "telegram",
+        "accountId": "tech"
+      }
+    },
+    {
+      "agentId": "brain",
+      "match": {
+        "channel": "telegram",
+        "accountId": "brain"
+      }
+    },
+    {
+      "agentId": "smm",
+      "match": {
+        "channel": "telegram",
+        "accountId": "smm"
+      }
+    },
+    {
+      "agentId": "methodist",
+      "match": {
+        "channel": "telegram",
+        "accountId": "methodist"
+      }
+    },
+    {
+      "agentId": "seo",
+      "match": {
+        "channel": "telegram",
+        "accountId": "seo"
+      }
+    }
+  ],
+  "browser": {
+    "ssrfPolicy": {
+      "hostnameAllowlist": [
+        "vk.ru",
+        "*.vk.ru",
+        "vk.com",
+        "*.vk.com",
+        "127.0.0.1"
+      ],
+      "allowedHostnames": [
+        "127.0.0.1"
+      ],
+      "dangerouslyAllowPrivateNetwork": true
+    }
+  }
+}
